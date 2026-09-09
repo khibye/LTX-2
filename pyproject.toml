@@ -25,6 +25,10 @@ name = "pypi"
 url = "https://pypi.org/simple"
 
 [dependency-groups]
+api = [
+    "fastapi>=0.115,<1",
+    "uvicorn[standard]>=0.34,<1",
+]
 dev = [
     "google-cloud-storage>=2.0",
     "matplotlib>=3.7",
