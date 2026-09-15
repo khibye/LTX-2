@@ -40,7 +40,7 @@ natten = [
 ]
 
 [tool.uv.sources]
-# macOS: the cu132 indexes ship no darwin wheels, so fall back to PyPI there.
+# macOS: the cu128 indexes ship no darwin wheels, so fall back to PyPI there.
 torch = [{ index = "torch", marker = "sys_platform != 'darwin'" }]
 torchaudio = [{ index = "torch-test", marker = "sys_platform != 'darwin'" }]
 torchvision = [{ index = "torch", marker = "sys_platform != 'darwin'" }]
@@ -48,12 +48,12 @@ natten = { index = "natten" }
 
 [[tool.uv.index]]
 name = "torch"
-url = "https://download.pytorch.org/whl/cu132"
+url = "https://download.pytorch.org/whl/cu128"
 explicit = true
 
 [[tool.uv.index]]
 name = "torch-test"
-url = "https://download.pytorch.org/whl/test/cu132/"
+url = "https://download.pytorch.org/whl/test/cu128/"
 explicit = true
 
 [[tool.uv.index]]

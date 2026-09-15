@@ -31,7 +31,7 @@ dependencies = [
     "torch>=2.6.0",
     "torchaudio>=2.7.0",
     # torchcodec must match the torch version (it ships a torch-ABI C++ extension and declares
-    # no torch pin of its own). With the natten extra (torch 2.13 + cu132), keep the upper
+    # no torch pin of its own). Keep the upper
     # bound open enough for matching torchcodec wheels. torchaudio>=2.9 routes
     # torchaudio.load() through torchcodec, so audio preprocessing needs it installed.
     "torchcodec>=0.8.1,<1.0.0",
@@ -42,17 +42,17 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-# macOS: the cu132 indexes ship no darwin wheels, so fall back to PyPI there.
+# macOS: the cu128 indexes ship no darwin wheels, so fall back to PyPI there.
 torchcodec = [{ index = "torch", marker = "sys_platform != 'darwin'" }]
 torchaudio = [{ index = "torch-test", marker = "sys_platform != 'darwin'" }]
 
 [[tool.uv.index]]
 name = "torch"
-url = "https://download.pytorch.org/whl/cu132"
+url = "https://download.pytorch.org/whl/cu128"
 
 [[tool.uv.index]]
 name = "torch-test"
-url = "https://download.pytorch.org/whl/test/cu132/"
+url = "https://download.pytorch.org/whl/test/cu128/"
 explicit = true
 
 [dependency-groups]

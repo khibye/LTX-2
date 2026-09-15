@@ -1,4 +1,4 @@
-FROM nvidia/cuda:13.2.0-cudnn-devel-ubuntu24.04
+FROM nvidia/cuda:12.8.1-cudnn-devel-ubuntu24.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
@@ -18,7 +18,7 @@ RUN apt-get update \
 COPY pyproject.toml README.md LICENSE* ./
 COPY packages ./packages
 
-RUN uv sync --no-cache --extra natten --group api --no-dev
+RUN uv sync --no-cache --group api --no-dev
 
 COPY api.py ./api.py
 
