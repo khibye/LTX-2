@@ -42,17 +42,17 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-# macOS: the cu128 indexes ship no darwin wheels, so fall back to PyPI there.
+# macOS: the cu126 indexes ship no darwin wheels, so fall back to PyPI there.
 torchcodec = [{ index = "torch", marker = "sys_platform != 'darwin'" }]
 torchaudio = [{ index = "torch-test", marker = "sys_platform != 'darwin'" }]
 
 [[tool.uv.index]]
 name = "torch"
-url = "https://download.pytorch.org/whl/cu128"
+url = "https://download.pytorch.org/whl/cu126"
 
 [[tool.uv.index]]
 name = "torch-test"
-url = "https://download.pytorch.org/whl/test/cu128/"
+url = "https://download.pytorch.org/whl/test/cu126/"
 explicit = true
 
 [dependency-groups]

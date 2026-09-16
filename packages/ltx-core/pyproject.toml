@@ -32,15 +32,12 @@ dependencies = [
 
 [project.optional-dependencies]
 natten = [
-    # Pinned wheel + matching torch so DiffVAE does not hit TokPerm IMA on older
-    # PyTorch/NVIDIA stacks. Keep in sync with install hints in attention.py /
-    # diffusion_video_decoder.py and packages/ltx-pipelines/docs/optimization.md.
-    "natten==0.21.7+torch2130cu132; sys_platform == 'linux' and (platform_machine == 'x86_64' or platform_machine == 'aarch64')",
+    "natten==0.21.7+torch2130cu126; sys_platform == 'linux' and (platform_machine == 'x86_64' or platform_machine == 'aarch64')",
     "torch==2.13.0; sys_platform == 'linux' and (platform_machine == 'x86_64' or platform_machine == 'aarch64')",
 ]
 
 [tool.uv.sources]
-# macOS: the cu128 indexes ship no darwin wheels, so fall back to PyPI there.
+# macOS: the cu126 indexes ship no darwin wheels, so fall back to PyPI there.
 torch = [{ index = "torch", marker = "sys_platform != 'darwin'" }]
 torchaudio = [{ index = "torch-test", marker = "sys_platform != 'darwin'" }]
 torchvision = [{ index = "torch", marker = "sys_platform != 'darwin'" }]
@@ -48,12 +45,12 @@ natten = { index = "natten" }
 
 [[tool.uv.index]]
 name = "torch"
-url = "https://download.pytorch.org/whl/cu128"
+url = "https://download.pytorch.org/whl/cu126"
 explicit = true
 
 [[tool.uv.index]]
 name = "torch-test"
-url = "https://download.pytorch.org/whl/test/cu128/"
+url = "https://download.pytorch.org/whl/test/cu126/"
 explicit = true
 
 [[tool.uv.index]]

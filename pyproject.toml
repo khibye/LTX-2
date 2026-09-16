@@ -28,12 +28,9 @@ dev = [
     "ruff>=0.14.3",
     "pytest~=9.0",
     "pytest-xdist~=3.8",
-    # Match torch's cu128 index (see packages/ltx-core pyproject): kernel builds must use
-    # the venv nvcc, not a mismatched system toolkit.
-    # `cccl` provides <nv/target> (pulled by cuda_fp16.h); `nvcc` alone is not enough.
-    "cuda-toolkit[nvcc,cccl]==12.8.*; sys_platform == 'linux'",
-    "nvidia-cuda-nvcc==12.8.*; sys_platform == 'linux'",
-    "nvidia-cuda-cccl==12.8.*; sys_platform == 'linux'",
+    "cuda-toolkit[nvcc,cccl]==12.6.*; sys_platform == 'linux'",
+    "nvidia-cuda-nvcc-cu12==12.6.*; sys_platform == 'linux'",
+    "nvidia-cuda-cccl-cu12==12.6.*; sys_platform == 'linux'",
 ]
 # Opt-in compiled CUDA kernels (blockwise FP8/FP6 GEMM + multi-GPU all2all), built
 # editable from packages/ltx-kernels without build isolation (torch must already be
